@@ -1,25 +1,3 @@
-```bash
-$ ifconfig -a
-can0: flags=193<UP,RUNNING,NOARP>  mtu 16
-        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
-        RX packets 0  bytes 0 (0.0 B)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 0  bytes 0 (0.0 B)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-# 创建CAN接口
-sudo ip link set can0 up type can bitrate 500000
-
-# 安装can-utils工具库
-sudo apt-get install can-utils
-
-# 使用cansend发送CAN消息
-cansend can0 123#1122334455667788
-
-# 使用candump监听CAN消息
-candump can0
-```
-
 # PCAN
 ```bash
 # 查询驱动
@@ -45,6 +23,28 @@ signer:
 sig_key:        
 sig_hashalgo:   md4
 ```
+```bash
+$ ifconfig -a
+can0: flags=193<UP,RUNNING,NOARP>  mtu 16
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 10  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+# 创建CAN接口
+sudo ip link set can0 up type can bitrate 500000
+
+# 安装can-utils工具库
+sudo apt-get install can-utils
+
+# 使用cansend发送CAN消息
+cansend can0 123#1122334455667788
+
+# 使用candump监听CAN消息
+candump can0
+```
+
 
 # SLCAN
 ```bash
